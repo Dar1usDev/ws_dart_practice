@@ -64,10 +64,13 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget getBody() {
-    if (selectedIndex == 0) {
-      return _sortingWidget;
-    } else {
-      return _cookingWidget;
+    switch(selectedIndex){
+      case 0:
+        return _sortingWidget;
+      case 1:
+        return _cookingWidget;
+      default:
+        return _sortingWidget;
     }
   }
 
