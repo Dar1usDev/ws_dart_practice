@@ -10,6 +10,8 @@ class CookingPage extends StatefulWidget {
 class _CookingPageState extends State<CookingPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+        child: Text('Не успел но хотя бы bottomNavigationBar глянул('),
+    );
   }
 }

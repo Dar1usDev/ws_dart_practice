@@ -76,7 +76,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
                 _unsortedArrayStr,
               ),
               SizedBox(
-                width: 200,
+                width: 110,
                 child: ElevatedButton(
                     onPressed: () {
                       _randomData(_currentType);
@@ -87,7 +87,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                _sort();
+                _sort(_currentType);
               },
               child: const Text("Sort")),
           Text(
@@ -134,7 +134,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
     });
   }
 
-  _sort() {
+  _sort(DataType _currentType) {
     setState(() {
       _sortedArrayStr = '';
 
@@ -142,13 +142,33 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
 
       for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 9; j++) {
-          if (_sortedArray[j]
-                  .toString()
-                  .compareTo(_sortedArray[j + 1].toString()) ==
-              1) {
-            Object _temp = _sortedArray[j];
-            _sortedArray[j] = _sortedArray[j + 1];
-            _sortedArray[j + 1] = _temp;
+          switch (_currentType) {
+            case DataType.intType:
+              if (int.parse(_sortedArray[j].toString()) >
+                  int.parse(_sortedArray[j + 1].toString())) {
+                Object _temp = _sortedArray[j];
+                _sortedArray[j] = _sortedArray[j + 1];
+                _sortedArray[j + 1] = _temp;
+              }
+              break;
+            case DataType.doubleType:
+              if (double.parse(_sortedArray[j].toString()) >
+                  double.parse(_sortedArray[j + 1].toString())) {
+                Object _temp = _sortedArray[j];
+                _sortedArray[j] = _sortedArray[j + 1];
+                _sortedArray[j + 1] = _temp;
+              }
+              break;
+            case DataType.stringType:
+              if (_sortedArray[j]
+                      .toString()
+                      .compareTo(_sortedArray[j + 1].toString()) ==
+                  1) {
+                Object _temp = _sortedArray[j];
+                _sortedArray[j] = _sortedArray[j + 1];
+                _sortedArray[j + 1] = _temp;
+              }
+              break;
           }
         }
       }
