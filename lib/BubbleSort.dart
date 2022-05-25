@@ -141,10 +141,10 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
       _sortedArray = _unsortedArray;
 
       for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j < 9; j++) {
           if (_sortedArray[j]
-              .toString()
-              .compareTo(_sortedArray[j + 1].toString()) >
+                  .toString()
+                  .compareTo(_sortedArray[j + 1].toString()) ==
               1) {
             Object _temp = _sortedArray[j];
             _sortedArray[j] = _sortedArray[j + 1];
