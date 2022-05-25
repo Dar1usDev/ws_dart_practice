@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// Сортировка пузырьком
 class BubbleSortPage extends StatefulWidget {
   const BubbleSortPage({Key? key}) : super(key: key);
 
@@ -9,14 +10,17 @@ class BubbleSortPage extends StatefulWidget {
   State<BubbleSortPage> createState() => _BubbleSortPageState();
 }
 
+/// Доступные типы данных
 enum DataType { intType, doubleType, stringType }
 
 class _BubbleSortPageState extends State<BubbleSortPage> {
   DataType _currentType = DataType.intType;
 
-  String _unsortedArrayStr = 'source';
-  String _sortedArrayStr = 'output';
+  /// Строки, которые отображаются на экране
+  String _unsortedStr = 'source';
+  String _sortedStr = 'output';
 
+  /// Контейнеры со значениями
   late List<Object> _unsortedArray;
   late List<Object> _sortedArray;
 
@@ -73,7 +77,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                _unsortedArrayStr,
+                _unsortedStr,
               ),
               SizedBox(
                 width: 110,
@@ -91,7 +95,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
               },
               child: const Text("Sort")),
           Text(
-            _sortedArrayStr,
+            _sortedStr,
           ),
         ],
       ),
@@ -125,12 +129,12 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
         }
       }
 
-      _unsortedArrayStr = '';
-      _sortedArrayStr = '';
+      _unsortedStr = '';
+      _sortedStr = '';
 
       for (int i = 0; i < 10; i++) {
-        _unsortedArrayStr += i == 0 ? '' : ' ';
-        _unsortedArrayStr += _unsortedArray[i].toString();
+        _unsortedStr += i == 0 ? '' : ' ';
+        _unsortedStr += _unsortedArray[i].toString();
       }
     });
   }
@@ -138,7 +142,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
   /// Сортировка для 3 типов данных
   _sort(DataType _currentType) {
     setState(() {
-      _sortedArrayStr = '';
+      _sortedStr = '';
 
       _sortedArray = _unsortedArray;
 
@@ -176,8 +180,8 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
       }
 
       for (int i = 0; i < 10; i++) {
-        _sortedArrayStr += i == 0 ? '' : ' ';
-        _sortedArrayStr += _sortedArray[i].toString();
+        _sortedStr += i == 0 ? '' : ' ';
+        _sortedStr += _sortedArray[i].toString();
       }
     });
   }
