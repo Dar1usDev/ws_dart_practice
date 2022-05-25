@@ -98,6 +98,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
     );
   } // build()
 
+  /// Генерация сета данных
   _randomData(DataType dataType) {
     const _chars =
         'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
@@ -134,6 +135,7 @@ class _BubbleSortPageState extends State<BubbleSortPage> {
     });
   }
 
+  /// Сортировка для 3 типов данных
   _sort(DataType _currentType) {
     setState(() {
       _sortedArrayStr = '';
